@@ -30,12 +30,15 @@
 ## 3. Required packages
 
 IDE : Java 1.8
+
 Maven : maven 4.0
+
 Extend Lib : see the pom.xml
 
 ## 4. Installation and usage
 
 input file : resource/experiments/OnlineStore.info
+
 output directory :  resource/experiments/online_store
 
 You can open main.java and run it directly.
