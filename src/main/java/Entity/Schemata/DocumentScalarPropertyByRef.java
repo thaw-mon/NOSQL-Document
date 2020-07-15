@@ -127,7 +127,7 @@ public class DocumentScalarPropertyByRef {
             docArrayStr.append(", docArray=").append(docArray);
         StringBuilder docRefsStr = new StringBuilder();
         if (!docRefs.isEmpty())
-            docRefsStr.append(", docRefs=").append(docArray);
+            docRefsStr.append(", docRefs=").append(docRefs);
         return "{" +
                 "name='" + name + '\'' +
                 ", property=" + propertyStr.toString() +

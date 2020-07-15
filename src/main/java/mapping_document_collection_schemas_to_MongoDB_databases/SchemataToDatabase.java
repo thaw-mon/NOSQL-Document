@@ -24,7 +24,6 @@ public class SchemataToDatabase {
     }
 
     public void generateDatabaseSQL() {
-        System.out.println("QPGToSchemata class");
         for (DocumentScalarPropertyByRefExtendIndex property : schemata) {
             tableSQL.add(property.getDocumentScalarPropertyByRef().generateDocument(0));
         }

@@ -10,7 +10,9 @@ import mapping_QPG_to_document_collection_schemas.DocumentModel.QPGtoDocumentSch
 
 import java.io.File;
 import java.io.FileWriter;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class QPGToSchemata {
     private Graph graph;
@@ -25,8 +27,29 @@ public class QPGToSchemata {
 
     //TODO add HW HA info
     public void generateSchemata() {
-        System.out.println("QPGToSchemata class");
+        List<String> entities = graph.getAllEntities();
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("please determine which entity types are HA/HW.");
+        System.out.println("if type is HW,please input HW;if type is HA,please input HA;Neither can be entered as other characters ");
+        List<String> HW = new ArrayList<>();
+        List<String> HA = new ArrayList<>();
+        for (String entity : entities) {
+            System.out.print(entity + " : ");
+            String ans = scanner.next();
+            switch (ans) {
+                case "HW":
+                    HW.add(entity);
+                    break;
+                case "HA":
+                    HA.add(entity);
+                    break;
+                default:
+                    //do nothing
+                    break;
+            }
+        }
         QPGtoDocumentSchemataWithRef2 qpGtoDocumentSchemataWithRef2 = new QPGtoDocumentSchemataWithRef2(graph);
+        qpGtoDocumentSchemataWithRef2.initHighlyWrittenAndHighAccessEntities(HW,HA);
         qpGtoDocumentSchemataWithRef2.generateSchemata();
         schemata = qpGtoDocumentSchemataWithRef2.getSchemataInfoWithIndex();
     }

@@ -23,6 +23,15 @@ public class Graph {
     public Map<Integer, QueryKeysEntity> queryKeysEntityMaps;
 
 
+    //get All entities
+    public List<String> getAllEntities() {
+        List<String> ret = new ArrayList<>();
+        for (Node node : nodes) {
+            ret.add(node.getNodeName());
+        }
+        return ret;
+    }
+
     //3.Add nodes or edges
     public void addNode(Node node) {
         nodes.add(node);

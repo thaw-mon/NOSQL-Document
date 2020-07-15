@@ -1,5 +1,5 @@
 Schemata info :
-{{name='Category', property=[int Category_id], docRefs=[]}, indexes=[[Category_id]]}
-{{name='Customer', property=[int Customer_id,string Customer_name,string[] Customer_contacts], docArray=[{name='OrderList', property=[int Order_id,string Order_date,string Order_deliveryDate,int Order_totalPrice,int Payment_id,string Payment_date,int Carrier_id,string Carrier_name,string[] Carrier_contacts], docArray=[{name='ItemList', property=[int Item_id,int Item_quantity], docRefs=[]}]}]}, indexes=[[Customer_id]]}
+{{name='Category', property=[int Category_id], docRefs=[{refName='ProductRefList', collectionName='Product'}]}, indexes=[[Category_id]]}
+{{name='Customer', property=[int Customer_id,string Customer_name,string[] Customer_contacts], docArray=[{name='OrderList', property=[int Order_id,string Order_date,string Order_deliveryDate,int Order_totalPrice,int Payment_id,string Payment_date,int Carrier_id,string Carrier_name,string[] Carrier_contacts], docArray=[{name='ItemList', property=[int Item_id,int Item_quantity], docRefs=[{refName='ProductRef', collectionName='Product'}]}]}]}, indexes=[[Customer_id]]}
 {{name='Product', property=[int Product_id,int Product_price,string Product_description,int Category_id,string Category_description,int Supplier_id,string Supplier_name,string[] Supplier_contacts]}, indexes=[[Product_id]]}
-{{name='Supplier', property=[int Supplier_id], docRefs=[]}, indexes=[[Supplier_id]]}
+{{name='Supplier', property=[int Supplier_id], docRefs=[{refName='ProductRefList', collectionName='Product'}]}, indexes=[[Supplier_id]]}

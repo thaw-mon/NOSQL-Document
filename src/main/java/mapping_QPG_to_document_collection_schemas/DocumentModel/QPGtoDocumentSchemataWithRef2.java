@@ -25,12 +25,18 @@ public class QPGtoDocumentSchemataWithRef2 {
         documentScalarPropertyByRefExtendIndexMap = new HashMap<>();
         highlyWrittenEntities = new ArrayList<>();
         highAccessEntities = new ArrayList<>();
-        initHighlyWrittenEntities();
+//        initHighlyWrittenAndHighAccessEntities();
     }
 
-    public void initHighlyWrittenEntities() {
+
+    public void initHighlyWrittenAndHighAccessEntities() {
         highlyWrittenEntities.add("Order");
         highAccessEntities.add("Product");
+    }
+
+    public void initHighlyWrittenAndHighAccessEntities(List<String> HW, List<String> HA) {
+        highlyWrittenEntities = HW;
+        highAccessEntities = HA;
     }
 
     //Generate Schemata with Ref
