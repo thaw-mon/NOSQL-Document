@@ -1,0 +1,26 @@
+Node info :
+Node{nodeName='Order', scalarProperties=[id/int,date/string,deliveryDate/string,totalPrice/int], isAccessPoint=false, queryNumbers=[], outNeighbors=[Item, Payment, Carrier]}
+Node{nodeName='Carrier', scalarProperties=[id/int,name/string,contacts/string[]], isAccessPoint=false, queryNumbers=[], outNeighbors=[]}
+Node{nodeName='Payment', scalarProperties=[id/int,date/string], isAccessPoint=false, queryNumbers=[], outNeighbors=[]}
+Node{nodeName='Item', scalarProperties=[id/int,quantity/int], isAccessPoint=false, queryNumbers=[], outNeighbors=[Product]}
+Node{nodeName='Customer', scalarProperties=[id/int,name/string,contacts/string[]], isAccessPoint=true, queryNumbers=[1, 2, 3], outNeighbors=[Order]}
+Node{nodeName='Product', scalarProperties=[id/int,price/int,description/string], isAccessPoint=true, queryNumbers=[6], outNeighbors=[Category, Supplier]}
+Node{nodeName='Supplier', scalarProperties=[id/int,name/string,contacts/string[]], isAccessPoint=true, queryNumbers=[5], outNeighbors=[Product]}
+Node{nodeName='Category', scalarProperties=[id/int,description/string], isAccessPoint=true, queryNumbers=[4], outNeighbors=[Product]}
+Edge info :
+Edge{QPG edge=<Customer,Order>/requests, queryNumbers=[1, 2, 3], cardinality=*}
+Edge{QPG edge=<Order,Item>/consists_of, queryNumbers=[1], cardinality=*}
+Edge{QPG edge=<Item,Product>/references, queryNumbers=[1], cardinality=1}
+Edge{QPG edge=<Order,Payment>/commits, queryNumbers=[2], cardinality=1}
+Edge{QPG edge=<Order,Carrier>/delivers, queryNumbers=[3], cardinality=1}
+Edge{QPG edge=<Category,Product>/catalogues, queryNumbers=[4], cardinality=*}
+Edge{QPG edge=<Supplier,Product>/furnishes, queryNumbers=[5], cardinality=*}
+Edge{QPG edge=<Product,Category>/catalogues, queryNumbers=[6], cardinality=1}
+Edge{QPG edge=<Product,Supplier>/furnishes, queryNumbers=[6], cardinality=1}
+QueryKeysEntity info :
+QueryKeysEntity{queryNum=1, EqualitySearchKeys=[Customer.id], InequalitySearchKeys=[], OrderingKeys=[], SelectedKeys=[Customer.name, Customer.contacts, Order.id, Order.date, Order.deliveryDate, Order.totalPrice, Item.id, Item.quantity, Product.id, Product.price, Product.description]}
+QueryKeysEntity{queryNum=2, EqualitySearchKeys=[Customer.id], InequalitySearchKeys=[], OrderingKeys=[], SelectedKeys=[Customer.name, Customer.contacts, Order.id, Order.date, Order.deliveryDate, Order.totalPrice, Payment.id, Payment.date]}
+QueryKeysEntity{queryNum=3, EqualitySearchKeys=[Customer.id], InequalitySearchKeys=[], OrderingKeys=[], SelectedKeys=[Customer.name, Customer.contacts, Order.id, Order.date, Order.deliveryDate, Order.totalPrice, Carrier.id, Carrier.name, Carrier.contacts]}
+QueryKeysEntity{queryNum=4, EqualitySearchKeys=[Category.id], InequalitySearchKeys=[], OrderingKeys=[], SelectedKeys=[Product.id, Product.price, Product.description]}
+QueryKeysEntity{queryNum=5, EqualitySearchKeys=[Supplier.id], InequalitySearchKeys=[], OrderingKeys=[], SelectedKeys=[Product.id, Product.price, Product.description]}
+QueryKeysEntity{queryNum=6, EqualitySearchKeys=[Product.id], InequalitySearchKeys=[], OrderingKeys=[], SelectedKeys=[Product.id, Product.price, Product.description , Category.id, Category.description, Supplier.id, Supplier.name, Supplier.contacts]}
